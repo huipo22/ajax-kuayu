@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+        <!--因为跨域  dataType 需要设置成jsonp-->
+        $(function () {
+            $.ajax({
+//                url: "http://api.douban.com/book/subject/1220562?alt=json",
+                url:"http://api.douban.com/v2/movie/in_theaters",
+                type: "GET",
+                dataType: "jsonp",
+                success: function (data) {
+                    console.log(data);
+                    $("h1").html(data.title)
+                    $("div").html(data.subjects[0].original_title)
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <div></div>
+</body>
+</html>
