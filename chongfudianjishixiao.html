@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重复点击失效</title>
+    <script src="http://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var tipMessage = {
+                undefined_msg: '格式不正确！',
+                title:"12121"
+            }
+//            判断要 ==  不是if（true）
+            var flag = true;
+
+            function showTips(message) {
+                console.log(flag)
+                if (flag == true) {
+                    flag = false;
+                    $('.msg').html(message);
+                    $('.msg').show();
+                    setTimeout(function () {
+                        $(".msg").hide()
+                        flag = true
+                    }, 3000);
+                }
+            }
+
+            $("button").bind("click", function () {
+                if ($(".as").val() == "") {
+                    showTips(tipMessage.title);
+                    return
+                }
+                if ($(".ad").val() == "") {
+                    showTips(tipMessage.undefined_msg);
+                    return
+                }
+                console.log(22)
+                window.location.href="https:www.baidu.com"
+            })
+
+
+        })
+    </script>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .msg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: #333;
+            color: #ffffff;
+            float: left;
+            display: none;
+        }
+
+        .button {
+            width: 100%;
+            height: 50px;
+            margin-top: 60px;
+            float: left;
+        }
+        .asdf{
+            float: left;
+            margin-top:200px;
+        }
+    </style>
+</head>
+<body>
+<div class="msg"></div>
+<div class="asdf">
+    <input type="text" class="as">
+    <input type="text" class="ad">
+</div>
+<div class="button">
+    <button>点击</button>
+</div>
+
+</body>
+</html>
