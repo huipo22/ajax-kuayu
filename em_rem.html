@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>em/rem</title>
+    <style>
+        /*
+            默认1em=16px
+            改变默认值  例如：10px/16px *100%
+            em是相对于[父]元素来设置字体大小
+        */
+        body {
+            font-size: 62.5%;
+        }
+
+        div:first-of-type {
+            font-size: 16px;
+        }
+
+        div:first-of-type p {
+            font-size: 1em;
+        }
+
+        div:last-of-type {
+            font-size: 1.6em;
+        }
+
+        /*
+            1rem = 16px
+            rem是相对于[<html>/根元素]来设置字体大小
+            不兼容ie6-8
+        */
+        html{
+            font-size: 62.5%;
+        }
+        span:first-of-type{
+            font-size: 1.6rem;
+        }
+        span:last-of-type{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<!--em-->
+<div>
+    <p>123</p>
+</div>
+<div>456</div>
+<!--rem-->
+<span>789</span>
+<span>654</span>
+</body>
+</html>
