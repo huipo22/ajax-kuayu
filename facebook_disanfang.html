@@ -1,0 +1,63 @@
+<!--
+    ****需要翻墙*****
+    1.需要在页面中加入sdk
+    2.点击调FB.login()
+    3. FB.login回调 statusChangeCallback(response)方法  拿到  access-token
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>face</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '354042541628454',
+                cookie: true,  // enable cookies to allow the server to access
+                               // the session
+                xfbml: true,  // parse social plugins on this page
+                version: 'v2.8' // use graph api version 2.8
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=354042541628454";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+        $(function () {
+            $("#fblogin").click(function () {
+                console.log('click')
+                FB.login(function (response) {
+                    statusChangeCallback(response);  //登录回调函数
+                }, {scope: 'email'});  //需要获取的信息scope
+            });
+            var statusChangeCallback = function (response) {
+                if (response.status === 'connected') {
+                    console.log(response.authResponse.accessToken)
+                    console.log(response)
+                }
+            };
+        })
+
+    </script>
+    <style>
+        #fblogin{
+            width: 200px;
+            background: #000;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<button id="fblogin">facebook</button>
+</body>
+</html>
