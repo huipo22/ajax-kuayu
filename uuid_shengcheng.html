@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uuid</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        (function ($) {
+            $.uuid = function () {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            };
+        })(jQuery);
+
+        /*
+            使用方法：调用 $.uuid()
+        */
+        console.log($.uuid())
+    </script>
+</head>
+<body>
+
+</body>
+</html>
