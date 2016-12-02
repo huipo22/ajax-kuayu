@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var co = localStorage.getItem("Cookies");
+            var h1=document.getElementsByTagName('h1')[0]
+            console.log(h1)
+            h1.innerHTML=co;
+        }
+    </script>
+</head>
+<body>
+<h1></h1>
+</body>
+</html>
