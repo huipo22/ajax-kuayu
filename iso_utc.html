@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>世界标准时间</title>
+    <script>
+        /*
+         日期中有 "T"
+         UTC时间格式：ISO 8601扩展格式为： YYYY-MM-DDTHH:mm:ss.sssZ
+         这个是国际标准的时间格式
+
+         utc时间转换本地时间   日期中间要有一个T
+         */
+        /*第一种*/
+        //        var d = new Date("2016-12-27T18:33:04");
+        //        var dformat = js_yyyy_mm_dd_hh_mm_ss(d);
+        //        /*函数*/
+        //        function js_yyyy_mm_dd_hh_mm_ss(date) {
+        //            console.log(date)
+        //            now = date;
+        //            year = "" + now.getFullYear();
+        //            month = "" + (now.getMonth() + 1);
+        //            if (month.length == 1) {
+        //                month = "0" + month;
+        //            }
+        //            day = "" + now.getDate();
+        //            if (day.length == 1) {
+        //                day = "0" + day;
+        //            }
+        //            hour = "" + now.getHours();
+        //            if (hour.length == 1) {
+        //                hour = "0" + hour;
+        //            }
+        //            minute = "" + now.getMinutes();
+        //            if (minute.length == 1) {
+        //                minute = "0" + minute;
+        //            }
+        //            second = "" + now.getSeconds();
+        //            if (second.length == 1) {
+        //                second = "0" + second;
+        //            }
+        //            return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        //        }
+        //        console.log(dformat);
+
+        /*第二种*/
+        var d1 = new Date("2016-12-27T18:33:04");
+        console.log("utc时间：2016-12-27 18:33:04")
+        function getTime(_this) {
+            year = "" + _this.getFullYear();
+            month = "" + (_this.getMonth() + 1);
+            if (month.length == 1) {
+                month = "0" + month;
+            }
+            day = "" + _this.getDate();
+            if (day.length == 1) {
+                day = "0" + day;
+            }
+            hour = "" + _this.getHours();
+            if (hour.length == 1) {
+                hour = "0" + hour;
+            }
+            minute = "" + _this.getMinutes();
+            if (minute.length == 1) {
+                minute = "0" + minute;
+            }
+            second = "" + _this.getSeconds();
+            if (second.length == 1) {
+                second = "0" + second;
+            }
+            return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        }
+        console.log("现在时间："+getTime(d1))
+    </script>
+</head>
+<body>
+
+</body>
+</html>
