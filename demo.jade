@@ -1,0 +1,59 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js")
+        script(src='http://127.0.0.1:3000/socket.io.js')
+        script(src='http://127.0.0.1:3000/client.js')
+    body
+        h1='click event'
+        a='789745'
+        style.
+            span:before{
+                content: 'xyz';
+                display: block;
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+            }
+
+            span:after {
+                content: 'abc';
+                display: block;
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+            }
+
+            a {
+                position: relative;
+                display: inline-block;
+                outline: none;
+                text-decoration: none;
+                color: #000;
+                font-size: 32px;
+                padding: 5px 10px;
+            }
+
+            a:hover::before, a:hover::after {
+                position: absolute;
+            }
+
+            a:hover::before {
+                content: "\5B";
+                left: -20px;
+            }
+
+            a:hover::after {
+                content: "\5D";
+                right: -20px;
+            }
+        script.
+            var num=0
+            $('h1').click(function () {
+                num++;
+                if(num==3){
+                    alert('three click!!!')
+                }
+            })
