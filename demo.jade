@@ -9,6 +9,12 @@ html
     body
         h1='click event'
         a='789745'
+        ul
+            li li1
+            li li2
+            li li3
+            li li4
+
         style.
             span:before{
                 content: 'xyz';
@@ -57,3 +63,9 @@ html
                     alert('three click!!!')
                 }
             })
+            var oLi=$('ul>li');
+            for(var i=0;i<oLi.length;i++){
+                $(oLi[i]).click(function () {
+                    console.log($(this).text())
+                })
+            }
