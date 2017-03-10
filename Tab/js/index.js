@@ -25,11 +25,11 @@ $(function () {
     var url = document.referrer;
     var index = url.substring(url.lastIndexOf('/') + 1);
     if (index == objPage.one) {
-        call(objPage.getNum(objPage.one))
+        call(objPage.getNum(index))
     } else if (index == objPage.two) {
-        call(objPage.getNum(objPage.two))
+        call(objPage.getNum(index))
     } else if (index == objPage.three) {
-        call(objPage.getNum(objPage.three))
+        call(objPage.getNum(index))
     }
    function call (index) {
         $($('.title>li')[index]).addClass('hot').siblings().removeClass('hot');
