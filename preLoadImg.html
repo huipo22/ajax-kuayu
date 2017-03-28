@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //第一种方式
+        window.onload=function () {
+            var images = new Array()
+            function preload() {
+                for (i = 0; i < preload.arguments.length; i++) {
+                    images[i] = new Image()
+                    images[i].src = preload.arguments[i]
+                }
+            }
+            preload(
+                "http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg",
+                "http://img13.poco.cn/mypoco/myphoto/20120828/15/55689209201208281549023849547194135_001.jpg",
+                "http://img02.tooopen.com/images/20140504/sy_60294738471.jpg"
+            )
+
+            var str = ""
+            for (var i = 0; i < images.length; i++) {
+                str += '<img src="' + images[i].src + '">'
+            }
+            document.body.innerHTML = str
+        }
+
+
+        /*function testFun(){
+         // 函数的参数可以通过 fun.arguments拿到
+         console.log(testFun.arguments)
+         }
+         testFun('a','b','c','d')*/
+
+    </script>
+</head>
+
+<body>
+<div class="div">
+
+</div>
+</body>
+
+</html>
