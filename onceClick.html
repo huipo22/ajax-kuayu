@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<div>
+    <p>4561238797</p>
+</div>
+<script>
+    /*
+     * 点击完成之后  移除 [点击事件]
+     */
+    window.onload = function () {
+        var oDiv = document.getElementsByTagName('div')[0]
+        var lis = function () {
+            alert('add')
+            oDiv.removeEventListener('click', lis, false);
+            alert('remove')
+        }
+        oDiv.addEventListener('click', lis, false)
+
+
+    }
+</script>
+</body>
+
+</html>
