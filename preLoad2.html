@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function preload(arr) {
+            var newimages = [], loadedimages = 0;
+            var postaction = function () { };
+            var arr = (typeof arr != "object") ? [arr] : arr;
+
+            function imageloadpost() {
+                loadedimages++;
+                if (loadedimages == arr.length) {
+                    //alert("图片已经加载完成");
+                    postaction(newimages);
+                }
+            }
+
+            for (var i = 0; i < arr.length; i++) {
+                newimages[i] = new Image();
+                newimages[i].src = arr[i];
+                newimages[i].onload = function () {
+                    console.log('img loaded')
+                    imageloadpost();
+                }
+                newimages[i].onerror = function () {
+                    console.log('img err')
+                    imageloadpost();
+                }
+            }
+
+            return {
+                done: function (f) {
+                    postaction = f || postaction;
+                }
+            }
+        }
+        window.onload=function () {
+            var imgs = ['./1.jpg'];
+            preload(imgs).done(function (images) {
+                var str = '';
+                for (var i = 0; i < images.length; i++) {
+                    str += '<img src="' + images[i].src + '">'
+                }
+                document.body.innerHTML = str;
+            });
+        }
+
+    </script>
+</body>
+
+</html>
