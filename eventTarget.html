@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<div>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</div>
+<script>
+    /*
+    * 事件委托   通过 event.target&&event.target.nodeName=="LI"   这个参数来进行判断
+    * 要用到事件源：event 对象,事件源,不管在哪个事件中，[只要你操作的那个元素就是事件源]
+    */
+    window.onload=function () {
+        var oDiv=document.getElementsByTagName('div')[0]
+        oDiv.onclick=function (ev) {
+            if(ev.target&&ev.target.nodeName=="LI"){
+                ev.target.style.cssText='color:red;font-size:15px'
+                console.log(ev.target)
+            }
+        }
+    }
+</script>
+</body>
+
+</html>
