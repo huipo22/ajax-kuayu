@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--
+        defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）
+    -->
+   <script src='index.js' async="async"></script>
+   <script src='index.js' defer="defer"></script>
+</head>
+<body>
+    <script>
+        alert('start')
+    </script>
+    <div>hello world</div>
+    <script>
+        alert('end')
+    </script>
+     <script>
+        alert('start')
+    </script>
+    <div>hello world</div>
+    <script>
+        alert('end')
+    </script>
+</body>
+</html>
